@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: mysql-binlog-demo
+
+#showSql
+logging:
+  level:
+    com:
+      shanhy:
+        demo : debug
+
+# binlog listener
+binlog:
+  datasource: # 订阅binlog数据库连接信息，ip，端口，用户密码（用户必须要有权限）
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 192.168.1.116
+    port: 3306
+    username: root
+    password: root@123
+    database-name: test_demo # 监听数据库
+    table-list: # 监听表
+      - demo_class
+      - demo_student
