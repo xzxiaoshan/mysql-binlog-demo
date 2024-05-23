@@ -78,9 +78,4 @@ Connected to 192.168.10.220:3306 at test-bin.000557/270069874 (sid:65535, cid:10
 
 > 记录binlogFileName和Position的代码详见文件 `SaveBinlogFilenameAndPositionListener.java`
 
-## 6. 单点问题
-
-`mysql-binlog-connector` 监听只能是单点服务，但是实际业务中我们需要保证高可用，即某台机器挂掉不能影响业务。
-
-实现思路：部署多台机器，只有一台机器能监听binlog，当这台机器挂掉后，其他机器抢夺binlog的监听。可以借助Zookeeper、Redis等方式实现。
 
